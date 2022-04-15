@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MedicineList from './medicineList';
-import Detail from './Detail';
-
-
-
 
 
 export default class App extends Component {
@@ -13,7 +9,7 @@ export default class App extends Component {
         products: [],
         searchQuery: "",
     }
-
+    //get api
     async componentDidMount() {
         const dataURL = "http://localhost:3002/Products";
         const response = await fetch(dataURL);
@@ -21,36 +17,31 @@ export default class App extends Component {
         this.setState({ products: data })
 
     }
-
-    searchMedicine = (Event) =>{
+    //medicine search
+    searchMedicine = (Event) => {
         console.log(Event.target.value)
-        this.setState({searchQuery: Event.target.value})
+        this.setState({ searchQuery: Event.target.value })
     }
-
-   
-    
 
 
     render() {
 
-
+        //medicine filtered
         let filteredMedicine = this.state.products.filter(
-            (item)=>{
-                return item.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1   
+            (item) => {
+                return item.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1
             }
-            
         )
 
-        
         return (
             <div>
                 <div className='container'>
                     <div className='row' >
                         <div className='col-lg-12' >
                             <h2>Faruk Eczanesi</h2>
+
                             <SearchBar searchMedicineProps={this.searchMedicine}></SearchBar>
-                            <MedicineList 
-                            products={filteredMedicine}></MedicineList>
+                            <MedicineList products={filteredMedicine}></MedicineList>
 
                         </div>
                     </div>
