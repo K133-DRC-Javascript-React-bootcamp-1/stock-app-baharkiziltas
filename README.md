@@ -1,6 +1,8 @@
 # React Stock App
 
 ![stockapp](photo.img/stockapp1.PNG)
+
+### `Search Bar`
 ![stockapp](photo.img/stockapp2.PNG)
 
 
