@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import MedicineList from './medicineList';
 
 
+
 export default class App extends Component {
 
     state = {
@@ -23,6 +24,10 @@ export default class App extends Component {
         this.setState({ searchQuery: Event.target.value })
     }
 
+    addStock =() =>{} ;
+    deleteStock =() =>{};
+   
+
 
     render() {
 
@@ -41,7 +46,10 @@ export default class App extends Component {
                             <h2>Faruk Eczanesi</h2>
 
                             <SearchBar searchMedicineProps={this.searchMedicine}></SearchBar>
-                            <MedicineList products={filteredMedicine}></MedicineList>
+                            <MedicineList products={filteredMedicine}
+                                          addStockProp={this.addStock}
+                                          deleteStockProp={this.deleteStock}
+                            ></MedicineList>
 
                         </div>
                     </div>

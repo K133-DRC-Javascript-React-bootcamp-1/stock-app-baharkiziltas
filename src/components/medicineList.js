@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 export default class medicineList extends Component {
 
+  
+
 
   render() {
     return (
@@ -23,6 +25,9 @@ export default class medicineList extends Component {
                 <td >{item.barcode}</td>
                 <td>{item.name}</td>
                 <td >{item.stock}</td>
+                <td style={{float:'right'}}>
+                  <button onClick={this.props.addStockProp} >+</button>
+                  <button onClick={this.props.deleteStockProp}>-</button></td>
               </tr>
 
             </tbody>
@@ -34,7 +39,5 @@ export default class medicineList extends Component {
       </div>
     )
   }
+
 }
-
-
-
