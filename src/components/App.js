@@ -24,8 +24,10 @@ export default class App extends Component {
         this.setState({ searchQuery: Event.target.value })
     }
 
-    addStock =() =>{} ;
-    deleteStock =() =>{};
+
+    setProducts = (products) => {
+        this.setState({products: products})
+    };
    
 
 
@@ -46,7 +48,8 @@ export default class App extends Component {
                             <h2>Faruk Eczanesi</h2>
 
                             <SearchBar searchMedicineProps={this.searchMedicine}></SearchBar>
-                            <MedicineList products={filteredMedicine}
+                            <MedicineList setProducts = {this.setProducts}
+                                          products={filteredMedicine}
                                           addStockProp={this.addStock}
                                           deleteStockProp={this.deleteStock}
                             ></MedicineList>
